@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import argparse
 
-from moelib import __version__
+from doc_pipe import __version__
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(prog="moelib", description="A moe moe project")
+    parser = argparse.ArgumentParser(prog="doc-pipe", description="A moe moe project")
     parser.add_argument("-v", "--version", action="version", version=__version__)
     args = parser.parse_args()  # type: ignore
 

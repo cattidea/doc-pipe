@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "moelib"
+name = "doc-pipe"
 version = "0.1.0"
 description = ""
 authors = ["Nyakku Shigure <sigure.qaq@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/ShigureLab/moelib"
-repository = "https://github.com/ShigureLab/moelib"
+homepage = "https://github.com/cattidea/doc-pipe"
+repository = "https://github.com/cattidea/doc-pipe"
 keywords = []
 classifiers = [
   "Operating System :: OS Independent",
@@ -31,7 +31,7 @@ pyright = "^1.1.273"
 pytest-rerunfailures = "^10.2"
 
 [tool.poetry.scripts]
-moelib = "moelib.__main__:main"
+doc-pipe = "doc_pipe.__main__:main"
 
 [tool.black]
 line-length = 120

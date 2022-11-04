@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import sys
 
-from moelib import __version__
+from doc_pipe import __version__
 
 if sys.version_info >= (3, 11):  # pragma: >=3.11 cover
     import tomllib

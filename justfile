@@ -1,4 +1,4 @@
-VERSION := `poetry run python -c "import sys; from moelib import __version__ as version; sys.stdout.write(version)"`
+VERSION := `poetry run python -c "import sys; from doc_pipe import __version__ as version; sys.stdout.write(version)"`
 
 install:
   poetry install
@@ -12,7 +12,7 @@ fmt:
   poetry run black .
 
 lint:
-  poetry run pyright moelib tests
+  poetry run pyright doc_pipe tests
 
 fmt-docs:
   prettier --write '**/*.md'
@@ -21,7 +21,7 @@ build:
   poetry build
 
 publish:
-  touch moelib/py.typed
+  touch doc_pipe/py.typed
   poetry publish --build
   git tag "v{{VERSION}}"
   git push --tags
