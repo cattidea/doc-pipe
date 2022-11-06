@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from pathlib import Path
 
 
 @dataclass
@@ -14,6 +15,27 @@ class ReplacementInfo:
     start: Location
     end: Location
     replacement: str
+
+
+@dataclass
+class Source:
+    content: str
+    path: Path | None
+    to_replace: list[ReplacementInfo] = field(default_factory=list)
+
+    @staticmethod
+    def from_str(content: str) -> Source:
+        return Source(content=content, path=None)
+
+    @staticmethod
+    def from_path(path: Path) -> Source:
+        return Source(content=path.read_text(), path=path)
+
+    def replace(self, replacement_info: ReplacementInfo) -> None:
+        self.to_replace.append(replacement_info)
+
+    def get_replaced_content(self) -> str:
+        return replace_with_location(self.content, self.to_replace)
 
 
 def crop_string(text: str, start: Location, end: Location) -> str:
