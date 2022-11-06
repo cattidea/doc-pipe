@@ -29,6 +29,7 @@ isort = "^5.10.1"
 tomli = { version = "^2.0.1", python = "<3.11" }
 pyright = "^1.1.273"
 pytest-rerunfailures = "^10.2"
+ruff = "^0.0.103"
 
 [tool.poetry.scripts]
 doc-pipe = "doc_pipe.__main__:main"
@@ -45,6 +46,13 @@ skip = ["setup.py", ".venv"]
 include = ["yutto", "tests"]
 pythonVersion = "3.9"
 typeCheckingMode = "strict"
+
+[tool.ruff]
+line-length = 120
+extend-ignore = [
+  "F401", # imported but unused, duplicate with pyright
+  "F841", # local variable is assigned to but never used, duplicate with pyright
+]
 
 [build-system]
 requires = ["poetry-core>=1.1.0"]

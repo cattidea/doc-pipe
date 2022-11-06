@@ -13,6 +13,7 @@ fmt:
 
 lint:
   poetry run pyright doc_pipe tests
+  poetry run ruff .
 
 fmt-docs:
   prettier --write '**/*.md'
